@@ -11,11 +11,11 @@ import { PersonasService } from '../personas.service';
 export class FormularioComponent {
   // @Output() personaCreada = new EventEmitter<Persona>();
 
-  // nombreInput: string = '';
-  // apellidoInput: string = '';
+  nombreInput: string = '';
+  apellidoInput: string = '';
 
   constructor(
-    private loggingService: LoggingService,
+    // private loggingService: LoggingService,
     private personaService: PersonasService
   ) {
     this.personaService.saludar.subscribe((indice: number) => {
@@ -23,8 +23,10 @@ export class FormularioComponent {
     });
   }
 
-  agregarPersona(nombre: HTMLInputElement, apellido: HTMLInputElement) {
-    let persona = new Persona(nombre.value, apellido.value);
+  // agregarPersona(nombre: string, apellido: string) {
+  agregarPersona() {
+    let persona = new Persona(this.nombreInput, this.apellidoInput);
+    // let persona = new Persona(nombre, apellido);
     // this.personaCreada.emit(persona);
     // this.personaService.agregarPersona(persona);
     // this.loggingService.enviarMensajeAConsola(
